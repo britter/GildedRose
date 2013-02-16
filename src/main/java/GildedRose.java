@@ -10,9 +10,9 @@ public class GildedRose {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
         System.out.println("OMGHAI!");
-		
+
         items = new ArrayList<Item>();
         items.add(new Item("+5 Dexterity Vest", 10, 20));
         items.add(new Item("Aged Brie", 2, 0));
@@ -21,16 +21,24 @@ public class GildedRose {
         items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
         items.add(new Item("Conjured Mana Cake", 3, 6));
 
+        printItemsOnDay();
         updateQuality();
 }
 
+    public static void printItemsOnDay() {
+        System.out.println(String.format("| %45s | %7s | %7s |", "Name", "Quality", "Sell In"));
+        String format = "| %45s | %7d | %7d |";
+        for (Item item : items) {
+            System.out.println(String.format(format, item.getName(), item.getQuality(), item.getSellIn()));
+        }
+    }
 
-	
+
     public static void updateQuality()
     {
         for (int i = 0; i < items.size(); i++)
         {
-            if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) 
+            if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
             {
                 if (items.get(i).getQuality() > 0)
                 {
